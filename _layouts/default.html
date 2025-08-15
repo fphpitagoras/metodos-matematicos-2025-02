@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-g">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <style>
+      body { font-family: sans-serif; line-height: 1.6; margin: 2em; }
+      nav { margin-bottom: 2em; border-bottom: 1px solid #ccc; padding-bottom: 1em; }
+      nav a { margin-right: 15px; text-decoration: none; }
+      .content { max-width: 800px; margin: auto; }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <header>
+        <h1>{{ site.title }}</h1>
+        <nav>
+          <a href="/">Home</a>
+          {% for page in site.pages %}
+            {% if page.title %}
+              <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+            {% endif %}
+          {% endfor %}
+        </nav>
+      </header>
+      <main>
+        {{ content }}
+      </main>
+    </div>
+  </body>
+</html>
